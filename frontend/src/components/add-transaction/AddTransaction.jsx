@@ -10,7 +10,7 @@ const AddTransaction = ({ onClose, fetchData }) => {
   const [date, setDate] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  const uri = "http://localhost:4000";
+  const uri = "https://expense-tracker-backend-rlia.onrender.com";
 
   const { user } = useContext(GlobalContext);
 

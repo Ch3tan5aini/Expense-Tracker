@@ -9,7 +9,7 @@ const Tracker = () => {
   const [loading, setLoading] = useState(false);
   const { setUser, setUserData } = useContext(GlobalContext);
   const navigate = useNavigate();
-  const uri = "http://localhost:4000";
+  const uri = "https://expense-tracker-backend-rlia.onrender.com";
 
   async function getUserData() {
     try {

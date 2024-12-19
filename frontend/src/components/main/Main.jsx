@@ -19,7 +19,7 @@ const Main = ({ fetchUserData }) => {
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [onConfirm, setOnConfirm] = useState(null);
-  const uri = "http://localhost:4000";
+  const uri = "https://expense-tracker-backend-rlia.onrender.com";
 
   const navigate = useNavigate();
 

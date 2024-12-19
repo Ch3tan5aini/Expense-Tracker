@@ -11,7 +11,7 @@ const SignUpComponent = () => {
   const [loading, setLoading] = useState(false);
   const { setUser } = useContext(GlobalContext);
   const [errorMsg, setErrorMsg] = useState("");
-  const uri = "http://localhost:4000";
+  const uri = "https://expense-tracker-backend-rlia.onrender.com";
 
   const navigate = useNavigate();
 

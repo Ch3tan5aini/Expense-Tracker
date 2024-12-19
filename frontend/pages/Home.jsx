@@ -9,7 +9,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { setUser } = useContext(GlobalContext);
-  const uri = "http://localhost:4000";
+  const uri = "https://expense-tracker-backend-rlia.onrender.com";
 
   async function checkCookie() {
     try {
