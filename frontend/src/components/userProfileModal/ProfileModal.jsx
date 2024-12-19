@@ -4,6 +4,7 @@ import { GlobalContext } from "../../context/globalContext";
 
 const ProfileModal = ({ onClose, onLogout, onReset }) => {
   const { user } = useContext(GlobalContext);
+  const uri = "https://expense-tracker-backend-rlia.onrender.com";
   return (
     <div>
       <div className="absolute z-30 top-16 right-5 md:right-10 backdrop-blur-md">
@@ -20,7 +21,7 @@ const ProfileModal = ({ onClose, onLogout, onReset }) => {
               Reset
             </button>
             <form
-              action={`http://localhost:4000/download/` + user}
+              action={uri + `/download/` + user}
               method="get"
               className="bg-gray-600 py-2 rounded-sm text-white text-center"
             >
