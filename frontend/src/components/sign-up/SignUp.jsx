@@ -17,7 +17,7 @@ const SignUpComponent = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (username.length < 8 || email.length === 0 || password.length < 0) {
+    if (username.length < 8 && email.length === 0 && password.length < 0) {
       setErrorMsg("Please Enter All The Details");
       return;
     }

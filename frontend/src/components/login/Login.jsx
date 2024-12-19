@@ -16,7 +16,7 @@ const LoginComponent = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (username.length < 8 || password.length < 8) {
+    if (username.length < 8 && password.length < 8) {
       setErrorMsg("Please Enter All The Details");
       return;
     }
