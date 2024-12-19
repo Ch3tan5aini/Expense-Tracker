@@ -18,7 +18,7 @@ const MongoPass = process.env.MONGODB_PASSWORD;
 // middlewares
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://expense-tracker-3reg.onrender.com",
     credentials: true,
   })
 );
