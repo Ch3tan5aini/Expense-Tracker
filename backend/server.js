@@ -9,6 +9,7 @@ import jwt from "jsonwebtoken";
 import verifyToken from "./Middlewares/cookieJwtAuth.js";
 import Transaction from "./Modals/transactionHistoryModal.js";
 import fs from "node:fs/promises";
+import path from "path";
 dotenv.config();
 
 const app = express();
@@ -24,6 +25,7 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "..", "frontend", "dist")));
 
 // MongoDB Connection
 mongoose
