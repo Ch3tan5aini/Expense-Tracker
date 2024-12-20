@@ -15,13 +15,13 @@ const ConfirmationModal = ({ heading, onClose, onConfirm, msg }) => {
           <span className="text-sm text-center">{msg}</span>
           <div className="flex gap-4 text-sm sm:text-base">
             <button
-              className="px-4 py-1 bg-red-500 rounded-sm text-white"
+              className="px-4 py-2 bg-red-500 rounded-sm text-white"
               onClick={onConfirm}
             >
               Yes! I'm Sure
             </button>
             <button
-              className="px-4 py-1 bg-blue-500 rounded-sm text-white"
+              className="px-4 py-2 bg-blue-500 rounded-sm text-white"
               onClick={() => onClose(false)}
             >
               No! Cancel

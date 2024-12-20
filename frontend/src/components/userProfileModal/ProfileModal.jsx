@@ -23,7 +23,7 @@ const ProfileModal = ({ onClose, onLogout, onReset }) => {
             <form
               action={uri + `/download/` + user}
               method="get"
-              className="bg-gray-600 py-2 rounded-sm text-white text-center"
+              className="bg-gray-600 py-2 rounded-sm cursor-pointer text-white text-center"
             >
               <button>Download</button>
             </form>

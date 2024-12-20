@@ -25,12 +25,12 @@ const HomeComponent = () => {
 
             <div className="flex mt-3 gap-5 justify-center items-center">
               <Link to={"/users/sign-up"}>
-                <button className="border-2 bg-blue-500 px-3 py-1.5 text-white rounded-sm">
+                <button className="border-2 bg-blue-500 px-3 py-2 text-white rounded-sm">
                   SignUp Now
                 </button>
               </Link>
               <Link to={"/users/login"}>
-                <button className="border-2 bg-blue-500 px-3 py-1.5 text-white  rounded-sm">
+                <button className="border-2 bg-blue-500 px-3 py-2 text-white  rounded-sm">
                   Login
                 </button>
               </Link>
