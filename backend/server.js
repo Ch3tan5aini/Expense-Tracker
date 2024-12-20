@@ -9,12 +9,15 @@ import jwt from "jsonwebtoken";
 import verifyToken from "./Middlewares/cookieJwtAuth.js";
 import Transaction from "./Modals/transactionHistoryModal.js";
 import fs from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 import path from "path";
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 const MongoPass = process.env.MONGODB_PASSWORD;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // middlewares
 app.use(
