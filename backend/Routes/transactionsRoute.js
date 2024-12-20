@@ -17,7 +17,7 @@ router.post("/add", async (req, res) => {
         .status(401)
         .send({ success: false, message: "Enter All The Details!" });
     }
-    
+
     const newTransaction = new Transaction(req.body);
     await newTransaction.save();
 
@@ -60,9 +60,10 @@ router.delete("/delete/:id", async (req, res) => {
 });
 
 // For Reseting the Tracker
-router.delete("/reset", async (req, res) => {
+router.delete("/reset/:username", async (req, res) => {
   try {
-    await Transaction.deleteMany({});
+    const { username } = req.params;
+    await Transaction.deleteMany({ username: username });
     res.status(200).send({ success: true, message: "Tracker Reset Done!" });
   } catch (error) {
     console.error("Error occurred:", error.message);

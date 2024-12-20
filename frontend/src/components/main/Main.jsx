@@ -35,6 +35,7 @@ const Main = ({ fetchUserData }) => {
     setExpenseHistory,
     incomeHistory,
     expenseHistory,
+    user,
   } = useContext(GlobalContext);
 
   function filterIncExp() {
@@ -57,7 +58,7 @@ const Main = ({ fetchUserData }) => {
   const trackerReset = async function () {
     try {
       setLoading(true);
-      await axios.delete(uri + "/transactions/reset", {
+      await axios.delete(uri + "/transactions/reset/" + user, {
         withCredentials: true,
       });
       setLoading(false);
