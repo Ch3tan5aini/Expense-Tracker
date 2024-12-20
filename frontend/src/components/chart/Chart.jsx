@@ -25,7 +25,7 @@ const ChartView = (props) => {
       <Chart
         options={chartData.options}
         type="donut"
-        series={[props.data.totalIncome, props.data.totalExpense]}
+        series={[props.data.totalIncome || 50, props.data.totalExpense || 30]}
       />
     </div>
   );
