@@ -46,13 +46,6 @@ mongoose
   });
 
 // Routes
-
-//unKnown routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "frontend", "dist", "index.html"));
-});
-
-
 //home route
 app.get("/", async (req, res) => {
   const token = req.cookies.token;
@@ -85,11 +78,11 @@ app.get("/download/:username", verifyToken, async (req, res) => {
             `Date: ${obj.date}, Discription: ${obj.discription}, Type: ${obj.type}, Amount: ${obj.amount}`
         )
         .join("\n") + "\n";
-
-    await fs.unlink("./UserData/user-data.txt");
-
-    await fs.appendFile("./UserData/user-data.txt", newFormatedData, "utf-8");
-
+        
+        await fs.unlink("./UserData/user-data.txt");
+        
+        await fs.appendFile("./UserData/user-data.txt", newFormatedData, "utf-8");
+        
     const filePath = "./UserData/user-data.txt";
 
     res.download(filePath, (err) => {
@@ -103,3 +96,8 @@ app.get("/download/:username", verifyToken, async (req, res) => {
     res.status(500).send({ success: false, message: "Try Again Later" });
   }
 });
+
+    // Serve the index.html file for all other routes
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, "..", "frontend", "dist", "index.html"));
+    });
