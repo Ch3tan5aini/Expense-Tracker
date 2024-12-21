@@ -16,8 +16,12 @@ const LoginComponent = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (username.length < 8 && password.length < 8) {
-      setErrorMsg("Please Enter All The Details");
+    if (username.length < 8) {
+      setErrorMsg("Username Must be 8 Characters Long");
+      return;
+    }
+    if (password.length < 8) {
+      setErrorMsg("Password Must be 8 Characters Long");
       return;
     }
     try {

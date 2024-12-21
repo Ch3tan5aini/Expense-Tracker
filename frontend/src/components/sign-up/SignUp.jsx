@@ -17,12 +17,20 @@ const SignUpComponent = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (username.length < 8 && email.length <= 0 && password.length < 8) {
-      setErrorMsg("Please Enter All The Details");
+    if (username.length < 8) {
+      setErrorMsg("Username must be at least 8 characters long");
+      return;
+    }
+    if (email.length <= 0) {
+      setErrorMsg("Please enter an email");
       return;
     }
     if (!email.includes("@")) {
-      setErrorMsg("Please Give Correct Email");
+      setErrorMsg("Please enter a valid email");
+      return;
+    }
+    if (password.length < 8) {
+      setErrorMsg("Password must be at least 8 characters long");
       return;
     }
     try {

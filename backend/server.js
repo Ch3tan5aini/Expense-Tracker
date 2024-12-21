@@ -46,6 +46,13 @@ mongoose
   });
 
 // Routes
+
+//unKnown routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "dist", "index.html"));
+});
+
+
 //home route
 app.get("/", async (req, res) => {
   const token = req.cookies.token;
