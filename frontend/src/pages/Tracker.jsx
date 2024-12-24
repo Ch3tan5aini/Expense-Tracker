@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import Main from "../components/main/Main";
 import axios from "axios";
-import { GlobalContext } from "../src/context/globalContext";
 import { TailSpin } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../context/globalContext";
 
 const Tracker = () => {
   const [loading, setLoading] = useState(false);

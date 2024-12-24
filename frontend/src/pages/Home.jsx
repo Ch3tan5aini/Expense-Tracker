@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { GlobalContext } from "../src/context/globalContext";
 import { TailSpin } from "react-loader-spinner";
 import HomeComponent from "../components/home/HomeComponent";
+import { GlobalContext } from "../context/globalContext";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
