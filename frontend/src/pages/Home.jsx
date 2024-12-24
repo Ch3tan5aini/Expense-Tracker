@@ -1,38 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
-import Main from "../src/components/main/Main";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { GlobalContext } from "../src/context/globalContext";
 import { TailSpin } from "react-loader-spinner";
-import { useNavigate } from "react-router-dom";
+import HomeComponent from "../components/home/HomeComponent";
 
-const Tracker = () => {
+const Home = () => {
   const [loading, setLoading] = useState(false);
-  const { setUser, setUserData } = useContext(GlobalContext);
   const navigate = useNavigate();
+  const { setUser } = useContext(GlobalContext);
   const uri = "https://expense-tracker-backend-rlia.onrender.com";
 
-  async function getUserData() {
+  async function checkCookie() {
     try {
       setLoading(true);
-      // fetching current user
-      const result = await axios.get(uri, {
+      const response = await axios.get(uri, {
         withCredentials: true,
       });
-
-      if (!result) {
-        navigate("/");
-      }
-      setUser(result.data.username);
-
-      //fetching current user data
-      const response = await axios.get(
-        uri + "/transactions/" + result.data.username,
-        { withCredentials: true }
-      );
-      if (response) {
-        setUserData(response.data.data);
-        setLoading(false);
-      }
+      if (!response) return;
+      setUser(response.data.username);
+      navigate("/tracker/" + response.data.username);
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -40,7 +27,7 @@ const Tracker = () => {
   }
 
   useEffect(() => {
-    getUserData();
+    checkCookie();
   }, []);
 
   return (
@@ -50,12 +37,12 @@ const Tracker = () => {
           <TailSpin height={50} width={50} color="blue" />
         </div>
       ) : (
-        <div>
-          <Main fetchUserData={getUserData} />
+        <div className="bg-gray-200 min-h-screen">
+          <HomeComponent />
         </div>
       )}
     </div>
   );
 };
 
-export default Tracker;
+export default Home;
